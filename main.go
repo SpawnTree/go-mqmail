@@ -8,11 +8,12 @@ import (
 
 const (
 	//RabbitMQUrl stores the url
-	RabbitMQUrl   string = "amqp://guest:guest@localhost:5672/"
-	RequestQueue  string = "email.request"
-	ResponseQueue string = "email.response"
-	ExchangeName  string = "MQMail"
-	RoutingKey    string = "emails"
+	RabbitMQUrl        string = "amqp://guest:guest@localhost:5672/"
+	RequestQueue       string = "email.request"
+	ResponseQueue      string = "email.response"
+	ExchangeName       string = "MQMail"
+	RequestRoutingKey  string = "requestRoutingKey"
+	ResponseRoutingKey string = "responseRoutingKey"
 )
 
 var (
@@ -95,7 +96,7 @@ func initRabbitMQ() {
 
 	err = ch.QueueBind(
 		requestQ.Name,
-		RoutingKey,
+		RequestRoutingKey,
 		ExchangeName,
 		false,
 		nil)
@@ -105,7 +106,7 @@ func initRabbitMQ() {
 	}
 	err = ch.QueueBind(
 		responseQ.Name,
-		RoutingKey,
+		ResponseRoutingKey,
 		ExchangeName,
 		false,
 		nil)
