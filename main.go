@@ -23,27 +23,6 @@ var (
 	responseQ amqp.Queue
 )
 
-//Request is an struct that contains the info for sending an email
-type Request struct {
-	From             string
-	ReplyTo          string
-	To               []string
-	CC               []string
-	Bcc              []string
-	Subject          string
-	Body             string
-	HTML             bool
-	TemplateFileName string
-	TemplateData     interface{}
-	Attachments      map[string]*Attachment
-}
-
-//Attachment is the struct for capturing attachments
-type Attachment struct {
-	Filename string
-	Data     []byte
-}
-
 func initRabbitMQ() {
 	conn, err := amqp.Dial(RabbitMQUrl)
 	if err != nil {
