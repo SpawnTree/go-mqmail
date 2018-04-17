@@ -41,7 +41,7 @@ var auth smtp.Auth
 const (
 	MailHost string = "smtp.mailgun.org"
 	UserName string = "postmaster@sandbox7c55d36539c9469893b865a0faf7ad43.mailgun.org"
-	Password string = "7f12d9c566f12f7a38fb5c5d1a7f76de"
+	Password string = ""
 	MailPort string = "25"
 )
 

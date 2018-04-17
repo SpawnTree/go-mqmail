@@ -70,7 +70,7 @@ func TestPublishAndConsumeMail(t *testing.T) {
 	assert.Nil(t, err)
 
 	done := make(chan bool)
-	os.Setenv("GO_ENV", "test")
+	// os.Setenv("GO_ENV", "test")
 	go func() {
 		for log := range msgs {
 			req := &Request{}
